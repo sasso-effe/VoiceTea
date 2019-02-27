@@ -1,23 +1,24 @@
 package com.example.voicetuner;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.pm.PackageManager;
-import android.support.*;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
-    private String[] permissions = {Manifest.permission.RECORD_AUDIO};
     private final int RECORD_AUDIO_REQ_COD = 1010;
+    private String[] permissions = {Manifest.permission.RECORD_AUDIO};
     private AdView mAdView;
+    private FloatingActionButton recordButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         loadAds();
         ActivityCompat.requestPermissions(this, permissions, RECORD_AUDIO_REQ_COD);
+        recordButton = new RecordButton(this, "test_rec");
+        recordButton = findViewById(R.id.fab);
     }
 
     @Override
@@ -32,13 +35,14 @@ public class MainActivity extends Activity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         boolean permissionToRecordGranted = false;
         switch (requestCode) {
-            case (RECORD_AUDIO_REQ_COD) :
+            case (RECORD_AUDIO_REQ_COD):
                 permissionToRecordGranted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
                 break;
         }
         if (!permissionToRecordGranted) {
             Toast.makeText(getApplicationContext(), "L'app non può funzionare senza permessi. Sto uscendo...", Toast.LENGTH_LONG);
-            finish();}
+            finish();
+        }
     }
 
     private void loadAds() {
@@ -49,4 +53,5 @@ public class MainActivity extends Activity {
                 .build();
         mAdView.loadAd(adRequest);
     }
+
 }
