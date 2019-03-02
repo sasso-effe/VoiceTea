@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
 
     private final int RECORD_AUDIO_REQ_COD = 50;
     private String[] permissions = {Manifest.permission.RECORD_AUDIO};
+    @SuppressWarnings("FieldCanBeLocal")
     private AdView mAdView;
+    @SuppressWarnings("FieldCanBeLocal")
     private FloatingActionButton recordButton;
 
     @Override
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         if (!permissionToRecordGranted) {
-            Toast.makeText(getApplicationContext(), "L'app non può funzionare senza permessi. Sto uscendo...", Toast.LENGTH_LONG);
+            Toast.makeText(getApplicationContext(), "L'app non può funzionare senza permessi. Sto uscendo...", Toast.LENGTH_LONG).show();
             finish();
         }
     }

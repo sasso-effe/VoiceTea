@@ -7,6 +7,8 @@ import android.media.MediaRecorder;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class RecordListener implements View.OnClickListener {
 
     private final int SAMPLE_RATE = 44100; //Hz value. 44100 Hz is CD samplerate standard.
@@ -20,11 +22,11 @@ public class RecordListener implements View.OnClickListener {
     private String fileName, filePath;
     private Context context;
 
-    public RecordListener(Context context, String fileName) {
+    RecordListener(Context context, String fileName) {
         super();
         this.context = context;
         this.fileName = fileName;
-        this.filePath = context.getExternalCacheDir().getAbsolutePath() + fileName;
+        this.filePath = Objects.requireNonNull(context.getExternalCacheDir()).getAbsolutePath() + fileName;
     }
 
     @Override
