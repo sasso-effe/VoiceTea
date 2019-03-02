@@ -15,7 +15,7 @@ import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final int RECORD_AUDIO_REQ_COD = 1010;
+    private final int RECORD_AUDIO_REQ_COD = 50;
     private String[] permissions = {Manifest.permission.RECORD_AUDIO};
     private AdView mAdView;
     private FloatingActionButton recordButton;
@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         loadAds();
         ActivityCompat.requestPermissions(this, permissions, RECORD_AUDIO_REQ_COD);
-        recordButton = new RecordButton(this, "test_rec");
         recordButton = findViewById(R.id.fab);
+        recordButton.setOnClickListener(new RecordListener(this, "testrec"));
     }
 
     @Override
