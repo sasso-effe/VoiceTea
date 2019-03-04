@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         loadAds();
         ActivityCompat.requestPermissions(this, permissions, RECORD_AUDIO_REQ_COD);
         recordButton = findViewById(R.id.fab);
-        recordButton.setOnClickListener(new RecordListener(this, "testrec"));
+        recordButton.setOnClickListener(new RecordListener(this));
     }
 
     @Override
