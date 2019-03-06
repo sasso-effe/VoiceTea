@@ -8,23 +8,21 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import java.util.Observable;
-
 public class RecordListener extends Observable implements View.OnClickListener {
 
-    private final int SAMPLE_RATE = 44100; //Hz value. 44100 Hz is CD samplerate standard.
-    // construct AudioRecord to record audio from microphone with sample rate of 44100Hz
-    private int minSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO,
-            AudioFormat.ENCODING_PCM_16BIT);
     private AudioRecord record;
-    private short[] buffer = new short[minSize];
-
+    /* private int minSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO,
+     *      AudioFormat.ENCODING_PCM_16BIT);
+     * minSize is about 3500, but we need a power of 2 dimension. 4096 is 2^12
+     */
+    private short[] buffer = new short[4096];
     private boolean isRecording = false;
     private Context context;
 
     RecordListener(Context context) {
         super();
         this.context = context;
+        addOb(new RecordObserver());
     }
 
     @Override
@@ -43,15 +41,17 @@ public class RecordListener extends Observable implements View.OnClickListener {
 
     private void startRecording() {
         isRecording = true;
+        //Hz value. 44100 Hz is CD samplerate standard.
+        int SAMPLE_RATE = 44100;
         record = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE,
                 AudioFormat.CHANNEL_IN_MONO,
-                AudioFormat.ENCODING_PCM_16BIT, minSize);
+                AudioFormat.ENCODING_PCM_16BIT, 4096);
         record.startRecording();
         Thread recThread = new Thread() {
             @Override
             public void run() {
                 while (isRecording) {
-                    record.read(buffer, 0, minSize);
+                    record.read(buffer, 0, 4096);
                     notifyObservers();
                 }
             }
@@ -72,7 +72,7 @@ public class RecordListener extends Observable implements View.OnClickListener {
         return context;
     }
 
-    public short[] getBuffer() {
+    short[] getBuffer() {
         return buffer;
     }
 

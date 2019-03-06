@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">VoiceTuner</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="about_us">Voicetuner is a Truebeans\'s project ideated, designed and programmed by Bernardo Manfriani and Pietro Fanti.
+        \nFor the Fourier Fast Transform algorithm we took inspiration from Robert Sedgewick and Kevin Wayne\'s one.</string>
+    <string name="no_profit_project">The project is "no-profit". When we have managed to cover production costs, we will remove advertisements for all users.
+        Below you can see how much we miss to reach this goal and help us with a small donation.</string>
+    <string name="_0">0€</string>
+    <string name="_30">30€</string>
+    <string name="donate_1_99">donate € 1.99</string>
 </resources>

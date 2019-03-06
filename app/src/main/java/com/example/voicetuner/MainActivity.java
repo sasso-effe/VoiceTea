@@ -1,12 +1,17 @@
 package com.example.voicetuner;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -30,6 +35,31 @@ public class MainActivity extends AppCompatActivity {
         ActivityCompat.requestPermissions(this, permissions, RECORD_AUDIO_REQ_COD);
         recordButton = findViewById(R.id.fab);
         recordButton.setOnClickListener(new RecordListener(this));
+        Toolbar myToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.navigation, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.navigation_about:
+                startAboutActivity();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void startAboutActivity() {
+
+        Intent homeIntent = new Intent(MainActivity.this, AboutActivity.class);
+        startActivity(homeIntent);
     }
 
     @Override
