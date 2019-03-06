@@ -1,11 +1,21 @@
 <resources>
-    <string name="app_name">VoiceTuner</string>
+    <string name="app_name">VoiceTea</string>
     <string name="title_activity_main2">Main2Activity</string>
-    <string name="about_us">Voicetuner is a Truebeans\'s project ideated, designed and programmed by Bernardo Manfriani and Pietro Fanti.
+    <string name="about_us_description">VoiceTea is a Truebeans\' project ideated, designed and programmed by Bernardo Manfriani and Pietro Fanti.
         \nFor the Fourier Fast Transform algorithm we took inspiration from Robert Sedgewick and Kevin Wayne\'s one.</string>
     <string name="no_profit_project">The project is "no-profit". When we have managed to cover production costs, we will remove advertisements for all users.
-        Below you can see how much we miss to reach this goal and help us with a small donation.</string>
+        Below you can see how much we miss to reach this goal and help us with a small donation.\nThe bar may take some time to update.</string>
     <string name="_0">0€</string>
     <string name="_30">30€</string>
     <string name="donate_1_99">donate € 1.99</string>
+    <string name="contact_us">Contact us:</string>
+    <string name="pietro_email">pietro.fanti@truebeans.it</string>
+    <string name="pietro">Pietro Fanti:</string>
+    <string name="bernardo">Bernardo Manfriani:</string>
+    <string name="bernardo_email">bernardo.manfriani@truebeans.it</string>
+    <string name="truebeans">Truebeans:</string>
+    <string name="truebeans_website">www.truebeans.it</string>
+    <string name="help">Help</string>
+    <string name="about_us">About us</string>
+    <string name="info">VoiceTea is an application designed for theater students and, in general, for anyone who needs to understand how to modulate his own voice.\nOnce started, the application will notify you when your voice has peaks of pitch that you should avoid, to help you understand how to modulate your pitch.</string>
 </resources>

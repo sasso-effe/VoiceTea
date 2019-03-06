@@ -3,7 +3,10 @@
 
     <item
         android:id="@+id/navigation_about"
-        android:title="About us"
-    >
-</item>
+        android:title="@string/about_us" />
+    <item
+        android:id="@+id/navigation_help"
+        android:title="@string/help"
+        android:icon="@drawable/ic_help_outline_grey_24dp"/>
+
 </menu>

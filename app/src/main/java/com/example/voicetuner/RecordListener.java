@@ -19,7 +19,7 @@ public class RecordListener extends Observable implements View.OnClickListener {
     private boolean isRecording = false;
     private Context context;
 
-    RecordListener(Context context) {
+    public RecordListener(Context context) {
         super();
         this.context = context;
         addOb(new RecordObserver());
