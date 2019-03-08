@@ -20,7 +20,7 @@ public class FFTTest {
         }
         buff = FFT.fft(buff);
         double frequency = Frequency.getFrequency(buff);
-        assertEquals(FREQUENCY, frequency, 2);
+        assertEquals(FREQUENCY, frequency, 0.5);
 
 
 

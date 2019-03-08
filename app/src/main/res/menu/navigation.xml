@@ -8,5 +8,7 @@
         android:id="@+id/navigation_help"
         android:title="@string/help"
         android:icon="@drawable/ic_help_outline_grey_24dp"/>
-
+    <item
+        android:id="@+id/navigation_settings"
+        android:title="@string/settings"/>
 </menu>

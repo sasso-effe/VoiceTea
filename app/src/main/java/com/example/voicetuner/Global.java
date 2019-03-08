@@ -1,10 +1,46 @@
 package com.example.voicetuner;
 
-import android.app.Application;
-
 public class Global {
-    private static final int SAMPLE_RATE = 5512;
-    private static final int BUFFER_SIZE = 4096;
-    public static int getSampleRate() { return SAMPLE_RATE;}
-    public static int getBufferSize() { return BUFFER_SIZE;}
+    private static int sampleRate = 4096;
+    private static int sampleRateModeId = 0;
+    private static int bufferSize = 4096;
+    private static int precisionModeId = 1;
+
+    public static int getSampleRate() { return sampleRate;}
+    public static int getBufferSize() { return bufferSize;}
+    public static int getSampleRateModeId() {return sampleRateModeId;}
+    public static int getPrecisionModeId() {return precisionModeId;}
+
+    public static void setSampleRate(int id) {
+        switch (id) {
+            case 0 :
+                Global.sampleRate = 4096;
+                break;
+            case 1:
+                Global.sampleRate = 5512;
+                break;
+            case 2:
+                Global.sampleRate = 11025;
+                break;
+            case 3:
+                Global.sampleRate = 22050;
+                break;
+            case 4:
+                Global.sampleRate = 44100;
+                break;
+        }
+        sampleRateModeId = id;
+    }
+
+    public static void setBufferSize(int id) {
+        switch (id) {
+            case 0:
+                Global.bufferSize = 2048;
+                break;
+            case 1:
+                Global.bufferSize = 4096;
+                break;
+        }
+        precisionModeId = id;
+    }
 }

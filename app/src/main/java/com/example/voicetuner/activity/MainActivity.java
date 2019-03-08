@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
 import com.example.voicetuner.R;
 import com.example.voicetuner.RecordListener;
 import com.google.android.gms.ads.AdView;
@@ -40,23 +41,22 @@ public class MainActivity extends BannerActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.navigation_about:
-                startAboutActivity();
+                startActivity(AboutActivity.class);
                 break;
             case R.id.navigation_help:
-                startHelpActivity();
+                startActivity(AboutActivity.class);
+                break;
+            case R.id.navigation_settings:
+                startActivity(SettingsActivity.class);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void startAboutActivity() {
-        Intent homeIntent = new Intent(MainActivity.this, AboutActivity.class);
+    private void startActivity(java.lang.Class activity) {
+        Intent homeIntent = new Intent(MainActivity.this, activity);
         startActivity(homeIntent);
-    }
 
-    private void startHelpActivity() {
-        Intent homeIntent = new Intent(MainActivity.this, HelpActivity.class);
-        startActivity(homeIntent);
     }
 
     @Override
