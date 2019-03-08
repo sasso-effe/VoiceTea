@@ -2,6 +2,7 @@ package com.example.voicetuner.fft;
 
 import android.app.Activity;
 
+import com.example.voicetuner.Global;
 import com.example.voicetuner.R;
 
 import java.util.Arrays;
@@ -10,7 +11,7 @@ public class Frequency {
 
     public static double getFrequency(Complex[] fft) {
         int index = getMaxMagnitudeIndex(fft);
-        final int SAMPLERATE = 44100;
+        final int SAMPLERATE = Global.getSampleRate();
         return (double)index * SAMPLERATE / fft.length;
     }
 
@@ -22,6 +23,7 @@ public class Frequency {
     private static int getMaxMagnitudeIndex(Complex[] fft) {
         double[] magnitude = Arrays.stream(fft)
                 .mapToDouble(Frequency::magnitude)
+                .limit(fft.length/2)
                 .toArray();
         int maxIndex = 0;
         double max = magnitude[0];
