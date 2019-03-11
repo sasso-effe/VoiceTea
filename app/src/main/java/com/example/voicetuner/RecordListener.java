@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.voicetuner.activity.MainActivity;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.DataPointInterface;
 
 public class RecordListener extends Observable implements View.OnClickListener {
 
@@ -50,7 +52,8 @@ public class RecordListener extends Observable implements View.OnClickListener {
                 AudioFormat.CHANNEL_IN_MONO,
                 AudioFormat.ENCODING_PCM_16BIT, Global.getBufferSize());
         record.startRecording();
-        Thread recThread = new Thread() {
+        //activity.getSeries().resetData(new DataPointInterface{new DataPoint(0,0)});
+        Thread recordThread = new Thread() {
             @Override
             public void run() {
                 while (isRecording) {
@@ -59,8 +62,7 @@ public class RecordListener extends Observable implements View.OnClickListener {
                 }
             }
         };
-        recThread.start();
-        Toast.makeText(getActivity().getApplicationContext(), "Start recording.", Toast.LENGTH_SHORT).show();
+        recordThread.start();
     }
 
     private void stopRecording() {
@@ -79,23 +81,7 @@ public class RecordListener extends Observable implements View.OnClickListener {
         return buffer;
     }
 
-    @Deprecated
-    //For test only
-    private void show() {
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                while (isRecording()) {
-                    String logBuffer = "";
-                    for (short s : getBuffer()) {
-                        logBuffer += s;
-                    }
-                    Log.i("buffer", logBuffer);
-                }
-            }
-        };
-        thread.start();
-    }
+
 }
 
 

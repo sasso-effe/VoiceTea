@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_us_description">VoiceTea è un progetto ideato e realizzato da Truebeans. \nPer l\'implementazione della Trasformata Veloce di Fourier abbiamo preso ispirazione dall\'algoritmo di Robert Sedgewick e Kevin Wayne. \nPer realizzare il grafico sono state usate le librerie di GraphView.</string>
+    <string name="no_profit_project">Il progetto è no-profit. Quando saremo riusciti a coprire i costi di produzione, rimuoveremo gli annunci per tutti gli utenti.</string>
+    <string name="contact_us">Contattaci:</string>
+    <string name="_0">€0</string>
+    <string name="_30">€30</string>
+    <string name="help">Aiuto</string>
+    <string name="about_us">Chi siamo</string>
+    <string name="settings">Impostazioni</string>
+    <string name="info">VoiceTea è un\'applicazione ideata per chi studia recitazione e, in generale, per chiunque abbia bisogno di capire come modulare la propria voce. \nUna volta avviata, l\'applicazione ti notificherà ogni volta che rileva picchi anomali nella tua intonazione (in gergo \"andare in salita\"), aiutandoti ad individuare dove mirare gli interventi di modulazione.</string>
+    <string name="precision">Precisione:</string>
+    <string name="donate_1_99">Dona €1.99</string>
+</resources>

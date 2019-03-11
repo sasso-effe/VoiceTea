@@ -7,16 +7,19 @@ import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.voicetuner.activity.MainActivity;
 import com.example.voicetuner.fft.Complex;
 import com.example.voicetuner.fft.FFT;
 import com.example.voicetuner.fft.Frequency;
+import com.jjoe64.graphview.series.DataPoint;
 
 import java.util.Arrays;
 
 public class RecordObserver implements Observer<RecordListener> {
-    private Activity myActivity;
+    private MainActivity myActivity;
+    private int x = 0;
 
-    RecordObserver(Activity activity) {
+    RecordObserver(MainActivity activity) {
         myActivity = activity;
     }
 
@@ -29,15 +32,14 @@ public class RecordObserver implements Observer<RecordListener> {
         }
         compBuffer = FFT.fft(compBuffer);
         double freq = Frequency.getFrequency(compBuffer);
-        showFrequency(freq);
+        drawGraph(freq);
+        //showFrequency(freq);
 
     }
 
     private void showFrequency(double freq) {
         if (freq > 0) {//TODO: solo per test
-            TextView frequencyText = myActivity.findViewById(R.id.frequencyText);
             ProgressBar frequencyBar = myActivity.findViewById(R.id.frequencyBar);
-            //frequencyText.setText(String.format("%s Hz", freq));
             int freqPercent = (int) freq * 100 / (Global.getSampleRate() / 2);
             frequencyBar.setProgress(freqPercent);
         } else {
@@ -45,7 +47,10 @@ public class RecordObserver implements Observer<RecordListener> {
         }
     }
 
-    private void drawGraph(double freq) {
+    private void drawGraph(double y) {
+        DataPoint p = new DataPoint(x, y);
+        myActivity.getSeries().appendData(p, true, 40);
+        x++;
 
     }
 }
