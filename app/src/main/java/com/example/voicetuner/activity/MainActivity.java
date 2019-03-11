@@ -15,10 +15,12 @@ import android.widget.Toast;
 import com.example.voicetuner.R;
 import com.example.voicetuner.RecordListener;
 import com.google.android.gms.ads.AdView;
+import com.jjoe64.graphview.GraphView;
 
 public class MainActivity extends BannerActivity {
     private final int RECORD_AUDIO_REQ_COD = 50;
     private String[] permissions = {Manifest.permission.RECORD_AUDIO};
+    private GraphView graph;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,5 +86,10 @@ public class MainActivity extends BannerActivity {
         return R.layout.activity_main;
     }
 
+    private void initGraph() {
+        graph = (GraphView) findViewById(R.id.graph);
+        graph.setBackgroundColor(getColor(R.color.colorBackground));
+    }
 
+    public GraphView getGraph() {return graph;}
 }

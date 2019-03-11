@@ -44,4 +44,8 @@ public class RecordObserver implements Observer<RecordListener> {
             Log.i("Frequency error", "Frequency too low: " + freq);
         }
     }
+
+    private void drawGraph(double freq) {
+
+    }
 }

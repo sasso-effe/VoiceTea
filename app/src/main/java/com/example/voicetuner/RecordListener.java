@@ -9,18 +9,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.voicetuner.activity.MainActivity;
+
 public class RecordListener extends Observable implements View.OnClickListener {
 
     private AudioRecord record;
     /* private int minSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO,
-     *      AudioFormat.ENCODING_PCM_16BIT);
+     *      AudioFormat.ENCODING_PSCM_16BIT);
      * minSize is about 3500, but we need a power of 2 dimension. 4096 is 2^12
      */
     private short[] buffer = new short[Global.getBufferSize()];
     private boolean isRecording = false;
-    private Activity activity;
+    private MainActivity activity;
 
-    public RecordListener(Activity activity) {
+    public RecordListener(MainActivity activity) {
         super();
         this.activity = activity;
         addOb(new RecordObserver(activity));
