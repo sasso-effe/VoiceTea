@@ -16,13 +16,15 @@ import java.util.Arrays;
 public class RecordObserver implements Observer<RecordListener> {
     private Activity myActivity;
 
-    RecordObserver(Activity activity) { myActivity = activity;}
+    RecordObserver(Activity activity) {
+        myActivity = activity;
+    }
 
     @Override
     public void update(RecordListener ob) {
         short[] buffer = ob.getBuffer();
         Complex[] compBuffer = new Complex[buffer.length];
-        for (int i = 0; i<buffer.length; i++) {
+        for (int i = 0; i < buffer.length; i++) {
             compBuffer[i] = new Complex(buffer[i], 0);
         }
         compBuffer = FFT.fft(compBuffer);
@@ -36,7 +38,7 @@ public class RecordObserver implements Observer<RecordListener> {
             TextView frequencyText = myActivity.findViewById(R.id.frequencyText);
             ProgressBar frequencyBar = myActivity.findViewById(R.id.frequencyBar);
             //frequencyText.setText(String.format("%s Hz", freq));
-            int freqPercent = (int) freq * 100 / (Global.getSampleRate()/ 2);
+            int freqPercent = (int) freq * 100 / (Global.getSampleRate() / 2);
             frequencyBar.setProgress(freqPercent);
         } else {
             Log.i("Frequency error", "Frequency too low: " + freq);
