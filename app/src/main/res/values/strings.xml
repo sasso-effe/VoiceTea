@@ -2,7 +2,8 @@
     <string name="app_name">VoiceTea</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="about_us_description">VoiceTea is a Truebeans\' project ideated, designed and programmed by Bernardo Manfriani and Pietro Fanti.
-        \nFor the Fourier Fast Transform algorithm we took inspiration from Robert Sedgewick and Kevin Wayne\'s one.</string>
+        \nFor the Fourier Fast Transform algorithm we took inspiration from Robert Sedgewick and Kevin Wayne\'s one.
+        \nGraph by GraphView library.</string>
     <string name="no_profit_project">The project is "no-profit". When we have managed to cover production costs, we will remove advertisements for all users.
         Below you can see how much we miss to reach this goal and help us with a small donation.\nThe bar may take some time to update.</string>
     <string name="_0">0€</string>
