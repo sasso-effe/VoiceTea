@@ -21,14 +21,14 @@
     <string name="samplerate" translatable="false">Samplerate:</string>
     <string name="hz" translatable="false">Hz</string>
     <string-array name="samplerate_entries">
-        <item>4096 (For spoken voice)</item>
-        <item>5512 (For spoken voice)</item>
+        <item>4096</item>
+        <item>5512</item>
         <item>11025</item>
         <item>22050</item>
-        <item>44100 (All audible frequencies)</item>
+        <item>44100 (Recommended)</item>
     </string-array>
     <string-array name="precision_entries">
-        <item>Low (For spoken voice only)</item>
+        <item>Low (Don\'t use with sample rate 44100)</item>
         <item>High (Could have some delay)</item>
     </string-array>
     <string name="donate_1_99">Donate $1.99</string>

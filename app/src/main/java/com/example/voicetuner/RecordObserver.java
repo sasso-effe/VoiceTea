@@ -37,19 +37,9 @@ public class RecordObserver implements Observer<RecordListener> {
 
     }
 
-    private void showFrequency(double freq) {
-        if (freq > 0) {//TODO: solo per test
-            ProgressBar frequencyBar = myActivity.findViewById(R.id.frequencyBar);
-            int freqPercent = (int) freq * 100 / (Global.getSampleRate() / 2);
-            frequencyBar.setProgress(freqPercent);
-        } else {
-            Log.i("Frequency error", "Frequency too low: " + freq);
-        }
-    }
-
     private void drawGraph(double y) {
         DataPoint p = new DataPoint(x, y);
-        myActivity.getSeries().appendData(p, true, 40);
+        myActivity.getSeries().appendData(p, true, 100);
         x++;
 
     }

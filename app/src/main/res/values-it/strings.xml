@@ -11,4 +11,15 @@
     <string name="info">VoiceTea è un\'applicazione ideata per chi studia recitazione e, in generale, per chiunque abbia bisogno di capire come modulare la propria voce. \nUna volta avviata, l\'applicazione ti notificherà ogni volta che rileva picchi anomali nella tua intonazione (in gergo \"andare in salita\"), aiutandoti ad individuare dove mirare gli interventi di modulazione.</string>
     <string name="precision">Precisione:</string>
     <string name="donate_1_99">Dona €1.99</string>
+    <string-array name="samplerate_entries">
+        <item>4096</item>
+        <item>5512</item>
+        <item>11025</item>
+        <item>22050</item>
+        <item>44100 (Raccomandato)</item>
+    </string-array>
+    <string-array name="precision_entries">
+        <item>Bassa</item>
+        <item>Alta</item>
+    </string-array>
 </resources>

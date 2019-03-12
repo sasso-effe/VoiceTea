@@ -17,6 +17,7 @@ import com.example.voicetuner.R;
 import com.example.voicetuner.RecordListener;
 import com.google.android.gms.ads.AdView;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.Viewport;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
@@ -99,7 +100,11 @@ public class MainActivity extends BannerActivity {
         Viewport vp = graph.getViewport();
         vp.setXAxisBoundsManual(true);
         vp.setMinX(0);
-        vp.setMaxX(30);
+        vp.setMaxX(100);
+        GridLabelRenderer glr = graph.getGridLabelRenderer();
+        glr.setLabelVerticalWidth(96);
+        glr.setPadding(24);
+        glr.setHorizontalLabelsVisible(false);
     }
 
     public GraphView getGraph() {return graph;}

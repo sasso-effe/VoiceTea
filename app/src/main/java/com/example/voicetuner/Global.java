@@ -1,8 +1,8 @@
 package com.example.voicetuner;
 
 public class Global {
-    private static int sampleRate = 4096;
-    private static int sampleRateModeId = 0;
+    private static int sampleRate = 44100;
+    private static int sampleRateModeId = 4;
     private static int bufferSize = 4096;
     private static int precisionModeId = 1;
 
