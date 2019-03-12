@@ -26,9 +26,10 @@ public class RecordObserver implements Observer<RecordListener> {
     @Override
     public void update(RecordListener ob) {
         short[] buffer = ob.getBuffer();
+        double[] window = Global.getWindowFunction();
         Complex[] compBuffer = new Complex[buffer.length];
         for (int i = 0; i < buffer.length; i++) {
-            compBuffer[i] = new Complex(buffer[i], 0);
+            compBuffer[i] = new Complex(buffer[i] * window[i], 0);
         }
         compBuffer = FFT.fft(compBuffer);
         double freq = Frequency.getFrequency(compBuffer);
@@ -43,4 +44,5 @@ public class RecordObserver implements Observer<RecordListener> {
         x++;
 
     }
+
 }

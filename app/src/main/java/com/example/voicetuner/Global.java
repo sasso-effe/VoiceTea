@@ -5,7 +5,7 @@ public class Global {
     private static int sampleRateModeId = 4;
     private static int bufferSize = 4096;
     private static int precisionModeId = 1;
-
+    private static double[] windowFunction = generateHannFunction();
     public static int getSampleRate() { return sampleRate;}
     public static int getBufferSize() { return bufferSize;}
     public static int getSampleRateModeId() {return sampleRateModeId;}
@@ -41,6 +41,19 @@ public class Global {
                 Global.bufferSize = 4096;
                 break;
         }
+        windowFunction = generateHannFunction();
         precisionModeId = id;
+    }
+
+    private static double[] generateHannFunction() {
+        double[] hann = new double[bufferSize];
+        for (int i = 0; i<bufferSize; i++) {
+            hann[i] = 0.5 * (1 - Math.cos(((2 * Math.PI * i) / bufferSize)));
+        }
+        return hann;
+    }
+
+    public static double[] getWindowFunction() {
+        return windowFunction;
     }
 }
