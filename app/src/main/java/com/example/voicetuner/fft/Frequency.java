@@ -1,15 +1,18 @@
 package com.example.voicetuner.fft;
 
+import android.util.Log;
+
 import com.example.voicetuner.Global;
 
 import java.util.Arrays;
 import java.util.stream.DoubleStream;
 
 public class Frequency {
+    public static final int NOT_SHOW_FREQUENCY = -1;
 
     public static double getFrequency(Complex[] fft) {
         int offset = 0; //ignore is voice focus mode is off
-        if (Global.isVoiceFocusOn) {
+        if (Global.isSpeechFocusOn) {
             fft = reduceArrayToSpeechFreqs(fft);
             offset = getMinBin(); // number of bin skipped
         }
@@ -26,7 +29,7 @@ public class Frequency {
     private static int getMaxMagnitudeIndex(Complex[] fft) {
         DoubleStream magnitudeStream = Arrays.stream(fft)
                 .mapToDouble(Frequency::magnitude);
-        if (!Global.isVoiceFocusOn) {
+        if (!Global.isSpeechFocusOn) {
             /* since fft is R -> C, the result array is symmetric and it is possible to analyze only
              * one half to speed up the execution times.
              * However it's not possible if VoiceMode is on, because in this case we are analyzing
@@ -43,6 +46,10 @@ public class Frequency {
                 maxIndex = i;
             }
         }
+        //For test only
+        Log.i("magnitude", "Magnitude revelead:" + max);
+        if (Global.isSpeechFocusOn && max < Global.MIN_SPEECH_MAGNITUDE)
+            maxIndex = NOT_SHOW_FREQUENCY; //Don't show the frequency if sound magnitude is too low.
         return maxIndex;
     }
 

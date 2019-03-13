@@ -8,8 +8,9 @@ public class Global {
      * bufferSize:          size of the buffer where is recorded audio. Bigger size means more precision
      * precisionModeId:     id for showing current setting in setting spinner
      * windowFunction:      array with length = bufferSize containing y window function values
-     * MIN_SPEECH_FREQ:     minimum frequency to be considered if Voice Focus Mode is active
-     * MAX_SPEECH_FREQ:     maximum frequency to be considered if Voice Focus Mode is active
+     * MIN_SPEECH_FREQ:     minimum frequency to be considered if Speech Focus Mode is active
+     * MAX_SPEECH_FREQ:     maximum frequency to be considered if Speech Focus Mode is active
+     * MIN_SPEECH_MAGNITUDE:minimun magnitude to be considered if Speech Focus Mode is active
      */
     private static int sampleRate = 44100;
     private static int sampleRateModeId = 4;
@@ -18,7 +19,8 @@ public class Global {
     private static double[] windowFunction = generateHannFunction();
     public static final int MIN_SPEECH_FREQ = 30;
     public static final int MAX_SPEECH_FREQ = 700;
-    public static boolean isVoiceFocusOn = true;
+    public static final int MIN_SPEECH_MAGNITUDE = 30000;
+    public static boolean isSpeechFocusOn = true;
 
     public static int getSampleRate() {
         return sampleRate;

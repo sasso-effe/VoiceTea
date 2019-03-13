@@ -32,10 +32,12 @@ public class RecordObserver implements Observer<RecordListener> {
     }
 
     private void drawGraph(double y) {
-        DataPoint p;
-        p = new DataPoint(x, y);
-        myActivity.getSeries().appendData(p, true, 100);
-        lastFrequency = y;
+        if (y != Frequency.NOT_SHOW_FREQUENCY) {
+            DataPoint p;
+            p = new DataPoint(x, y);
+            myActivity.getSeries().appendData(p, true, 100);
+            lastFrequency = y;
+        }
         x++;
     }
 
