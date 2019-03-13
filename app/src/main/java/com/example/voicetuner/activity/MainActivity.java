@@ -102,9 +102,10 @@ public class MainActivity extends BannerActivity {
         vp.setMinX(0);
         vp.setMaxX(100);
         GridLabelRenderer glr = graph.getGridLabelRenderer();
-        glr.setLabelVerticalWidth(96);
+        glr.setLabelVerticalWidth(80);
         glr.setPadding(24);
         glr.setHorizontalLabelsVisible(false);
+        glr.setVerticalAxisTitle("Frequency (Hz)");
     }
 
     public GraphView getGraph() {return graph;}

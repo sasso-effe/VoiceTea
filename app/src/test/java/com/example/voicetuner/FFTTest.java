@@ -12,7 +12,7 @@ public class FFTTest {
     public void fft_isCorrect() {
         final int AMPLITUDE, FREQUENCY, SAMPLE_RATE;
         AMPLITUDE = 10;
-        FREQUENCY = 1046;
+        FREQUENCY = 500;
         SAMPLE_RATE = Global.getSampleRate();
         Complex[] buff = new Complex[Global.getBufferSize()];
         for (int i = 0; i<buff.length; i++) {
@@ -20,7 +20,8 @@ public class FFTTest {
         }
         buff = FFT.fft(buff);
         double frequency = Frequency.getFrequency(buff);
-        assertEquals(FREQUENCY, frequency, 0.5);
+        double delta = (double) SAMPLE_RATE / Global.getBufferSize();
+        assertEquals(FREQUENCY, frequency, delta);
 
 
 
