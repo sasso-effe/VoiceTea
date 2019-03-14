@@ -12,8 +12,8 @@ public class Global {
      * MAX_SPEECH_FREQ:     maximum frequency to be considered if Speech Focus Mode is active
      * MIN_SPEECH_MAGNITUDE:minimun magnitude to be considered if Speech Focus Mode is active
      */
-    private static int sampleRate = 44100;
-    private static int sampleRateModeId = 4;
+    private static final int[] SAMPLE_RATE = {4096, 5512, 11025, 22050, 44100};
+    private static int sampleRateModeId = SAMPLE_RATE[4];
     private static int bufferSize = 4096;
     private static int precisionModeId = 1;
     private static double[] windowFunction = generateHannFunction();
@@ -22,9 +22,6 @@ public class Global {
     public static final int MIN_SPEECH_MAGNITUDE = 30000;
     public static boolean isSpeechFocusOn = true;
 
-    public static int getSampleRate() {
-        return sampleRate;
-    }
 
     public static int getBufferSize() {
         return bufferSize;
@@ -40,7 +37,7 @@ public class Global {
 
 
     public static void setSampleRate(int id) {
-        switch (id) {
+       /* switch (id) {
             case 0:
                 Global.sampleRate = 4096;
                 break;
@@ -58,6 +55,9 @@ public class Global {
                 break;
         }
         sampleRateModeId = id;
+        */
+
+        sampleRateModeId = SAMPLE_RATE[id];
     }
 
     public static void setBufferSize(int id) {

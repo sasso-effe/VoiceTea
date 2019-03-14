@@ -47,7 +47,7 @@ public class RecordListener extends Observable implements View.OnClickListener {
     private void startRecording() {
         isRecording = true;
         //Hz value. 44100 Hz is CD samplerate standard.
-        int SAMPLE_RATE = Global.getSampleRate();
+        int SAMPLE_RATE = Global.getSampleRateModeId();
         record = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE,
                 AudioFormat.CHANNEL_IN_MONO,
                 AudioFormat.ENCODING_PCM_16BIT, Global.getBufferSize());

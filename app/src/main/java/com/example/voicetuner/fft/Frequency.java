@@ -17,7 +17,7 @@ public class Frequency {
             offset = getMinBin(); // number of bin skipped
         }
         int index = getMaxMagnitudeIndex(fft) + offset;
-        final int SAMPLERATE = Global.getSampleRate();
+        final int SAMPLERATE = Global.getSampleRateModeId();
         return (double) index * SAMPLERATE / Global.getBufferSize();
     }
 
@@ -34,7 +34,7 @@ public class Frequency {
              * one half to speed up the execution times.
              * However it's not possible if VoiceMode is on, because in this case we are analyzing
              * only one non-symmetric portion of the array.
-            */
+             */
             magnitudeStream = magnitudeStream.limit(fft.length / 2);
         }
         double[] magnitude = magnitudeStream.toArray();
@@ -59,10 +59,10 @@ public class Frequency {
     }
 
     private static int getMinBin() {
-        return Global.MIN_SPEECH_FREQ * Global.getBufferSize() / Global.getSampleRate();
+        return Global.MIN_SPEECH_FREQ * Global.getBufferSize() / Global.getSampleRateModeId();
     }
 
     private static int getMaxBin() {
-        return Global.MAX_SPEECH_FREQ * Global.getBufferSize() / Global.getSampleRate();
+        return Global.MAX_SPEECH_FREQ * Global.getBufferSize() / Global.getSampleRateModeId();
     }
 }

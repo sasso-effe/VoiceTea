@@ -21,6 +21,7 @@ public abstract class BannerActivity extends AppCompatActivity {
     }
 
     public abstract AdView getAdView();
+
     public abstract int getLayoutId();
 
 
