@@ -5,7 +5,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.Spinner;
+import android.widget.Switch;
 
 import com.example.voicetuner.Global;
 import com.example.voicetuner.R;
@@ -21,12 +23,14 @@ public class SettingsActivity extends SideActivity {
         sampleRateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Global.setSampleRate(position);
+                Global.setSampleRateId(position);
             }
+
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
-        sampleRateSpinner.setSelection(Global.getSampleRateModeId());
+        sampleRateSpinner.setSelection(Global.getSampleRateId());
 
         Spinner precisionSpinner = setSpinner(R.id.precision_spinner, R.array.precision_entries);
         precisionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -34,10 +38,21 @@ public class SettingsActivity extends SideActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Global.setBufferSize(position);
             }
+
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
-        precisionSpinner.setSelection(Global.getPrecisionModeId());
+        precisionSpinner.setSelection(Global.getBufferSizeId());
+
+        Switch speechModeSwitch = findViewById(R.id.speechSwitch);
+        speechModeSwitch.setChecked(Global.isSpeechFocusOn);
+        speechModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Global.isSpeechFocusOn = !Global.isSpeechFocusOn;
+            }
+        });
     }
 
     private Spinner setSpinner(int spinnerId, int arrayId) {

@@ -13,7 +13,7 @@ public class FFTTest {
         final int AMPLITUDE, FREQUENCY, SAMPLE_RATE;
         AMPLITUDE = 10;
         FREQUENCY = 500;
-        SAMPLE_RATE = Global.getSampleRateModeId();
+        SAMPLE_RATE = Global.getSampleRate();
         Complex[] buff = new Complex[Global.getBufferSize()];
         for (int i = 0; i<buff.length; i++) {
             buff[i] = new Complex(AMPLITUDE * Math.sin(2 * Math.PI * FREQUENCY * i / SAMPLE_RATE), 0);

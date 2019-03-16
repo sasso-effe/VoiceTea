@@ -16,9 +16,13 @@ public class Frequency {
             fft = reduceArrayToSpeechFreqs(fft);
             offset = getMinBin(); // number of bin skipped
         }
-        int index = getMaxMagnitudeIndex(fft) + offset;
-        final int SAMPLERATE = Global.getSampleRateModeId();
-        return (double) index * SAMPLERATE / Global.getBufferSize();
+        int index = getMaxMagnitudeIndex(fft);
+        if (index != NOT_SHOW_FREQUENCY) {
+            index = getMaxMagnitudeIndex(fft) + offset;
+            final int SAMPLERATE = Global.getSampleRate();
+            return (double) index * SAMPLERATE / Global.getBufferSize();
+        } else
+            return NOT_SHOW_FREQUENCY;
     }
 
     private static double magnitude(Complex c) {
@@ -34,7 +38,7 @@ public class Frequency {
              * one half to speed up the execution times.
              * However it's not possible if VoiceMode is on, because in this case we are analyzing
              * only one non-symmetric portion of the array.
-             */
+            */
             magnitudeStream = magnitudeStream.limit(fft.length / 2);
         }
         double[] magnitude = magnitudeStream.toArray();
@@ -59,10 +63,10 @@ public class Frequency {
     }
 
     private static int getMinBin() {
-        return Global.MIN_SPEECH_FREQ * Global.getBufferSize() / Global.getSampleRateModeId();
+        return Global.MIN_SPEECH_FREQ * Global.getBufferSize() / Global.getSampleRate();
     }
 
     private static int getMaxBin() {
-        return Global.MAX_SPEECH_FREQ * Global.getBufferSize() / Global.getSampleRateModeId();
+        return Global.MAX_SPEECH_FREQ * Global.getBufferSize() / Global.getSampleRate();
     }
 }

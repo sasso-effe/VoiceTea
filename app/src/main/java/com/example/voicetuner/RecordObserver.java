@@ -6,6 +6,8 @@ import com.example.voicetuner.fft.Complex;
 import com.example.voicetuner.fft.FFT;
 import com.example.voicetuner.fft.Frequency;
 import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+import com.jjoe64.graphview.series.Series;
 
 public class RecordObserver implements Observer<RecordListener> {
     private MainActivity myActivity;
@@ -32,14 +34,20 @@ public class RecordObserver implements Observer<RecordListener> {
     }
 
     private void drawGraph(double y) {
-        if (y != Frequency.NOT_SHOW_FREQUENCY) {
-            DataPoint p;
-            p = new DataPoint(x, y);
-            myActivity.getSeries().appendData(p, true, 100);
-            lastFrequency = y;
+        LineGraphSeries series = myActivity.getSeries();
+        boolean notShow = y == Frequency.NOT_SHOW_FREQUENCY;
+        if (notShow) {
+            series.setColor(myActivity.getColor(R.color.colorInvisible));
+            y = 0;
         }
+        DataPoint p;
+        p = new DataPoint(x, y);
+        series.appendData(p, true, 100);
+        lastFrequency = y;
         x++;
+        if (notShow) {
+            series.setColor(myActivity.getColor(R.color.colorPrimary));
+        }
     }
-
 
 }

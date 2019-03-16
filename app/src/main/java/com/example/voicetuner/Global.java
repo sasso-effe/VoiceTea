@@ -4,79 +4,55 @@ public class Global {
     /* Class to access to global variables such as current settings.
      * ---VARIABLE EXPLANATION:---
      * sampleRate:          number of samples in a second
-     * sampleRateModeId:    id for showing current setting in setting spinner
+     * sampleRateId:    id for showing current setting in setting spinner
      * bufferSize:          size of the buffer where is recorded audio. Bigger size means more precision
-     * precisionModeId:     id for showing current setting in setting spinner
+     * bufferSizeId:     id for showing current setting in setting spinner
      * windowFunction:      array with length = bufferSize containing y window function values
      * MIN_SPEECH_FREQ:     minimum frequency to be considered if Speech Focus Mode is active
      * MAX_SPEECH_FREQ:     maximum frequency to be considered if Speech Focus Mode is active
      * MIN_SPEECH_MAGNITUDE:minimun magnitude to be considered if Speech Focus Mode is active
      */
     private static final int[] SAMPLE_RATE = {4096, 5512, 11025, 22050, 44100};
-    private static int sampleRateModeId = SAMPLE_RATE[4];
-    private static int bufferSize = 4096;
-    private static int precisionModeId = 1;
+    private static int sampleRateId = 4;
+    private static final int[] BUFFER_SIZE = {2048, 4096};
+    private static int bufferSizeId = 1;
     private static double[] windowFunction = generateHannFunction();
     public static final int MIN_SPEECH_FREQ = 30;
     public static final int MAX_SPEECH_FREQ = 700;
-    public static final int MIN_SPEECH_MAGNITUDE = 30000;
+    public static final int MIN_SPEECH_MAGNITUDE = 80000;
     public static boolean isSpeechFocusOn = true;
 
 
     public static int getBufferSize() {
-        return bufferSize;
+        return BUFFER_SIZE[getBufferSizeId()];
     }
 
-    public static int getSampleRateModeId() {
-        return sampleRateModeId;
+    public static int getSampleRateId() {
+        return sampleRateId;
     }
 
-    public static int getPrecisionModeId() {
-        return precisionModeId;
+    public static int getBufferSizeId() {
+        return bufferSizeId;
     }
 
+    public static int getSampleRate() {
+        return SAMPLE_RATE[getSampleRateId()];
+    }
 
-    public static void setSampleRate(int id) {
-       /* switch (id) {
-            case 0:
-                Global.sampleRate = 4096;
-                break;
-            case 1:
-                Global.sampleRate = 5512;
-                break;
-            case 2:
-                Global.sampleRate = 11025;
-                break;
-            case 3:
-                Global.sampleRate = 22050;
-                break;
-            case 4:
-                Global.sampleRate = 44100;
-                break;
-        }
-        sampleRateModeId = id;
-        */
-
-        sampleRateModeId = SAMPLE_RATE[id];
+    public static void setSampleRateId(int id) {
+        sampleRateId = id;
     }
 
     public static void setBufferSize(int id) {
-        switch (id) {
-            case 0:
-                Global.bufferSize = 2048;
-                break;
-            case 1:
-                Global.bufferSize = 4096;
-                break;
-        }
+        bufferSizeId = id;
         windowFunction = generateHannFunction();
-        precisionModeId = id;
     }
 
     private static double[] generateHannFunction() {
-        double[] hann = new double[bufferSize];
-        for (int i = 0; i < bufferSize; i++) {
-            hann[i] = 0.5 * (1 - Math.cos(((2 * Math.PI * i) / bufferSize)));
+        int size = getBufferSize();
+        double[] hann = new double[size];
+        for (int i = 0; i < size; i++) {
+            hann[i] = 0.5 * (1 - Math.cos(((2 * Math.PI * i) / size)));
         }
         return hann;
     }

@@ -1,17 +1,13 @@
 package com.example.voicetuner;
 
-import android.app.Activity;
 import android.content.Context;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.voicetuner.activity.MainActivity;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.DataPointInterface;
 
 public class RecordListener extends Observable implements View.OnClickListener {
 
@@ -47,7 +43,7 @@ public class RecordListener extends Observable implements View.OnClickListener {
     private void startRecording() {
         isRecording = true;
         //Hz value. 44100 Hz is CD samplerate standard.
-        int SAMPLE_RATE = Global.getSampleRateModeId();
+        int SAMPLE_RATE = Global.getSampleRate();
         record = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE,
                 AudioFormat.CHANNEL_IN_MONO,
                 AudioFormat.ENCODING_PCM_16BIT, Global.getBufferSize());
