@@ -25,7 +25,7 @@ public class MainActivity extends BannerActivity {
     private final int RECORD_AUDIO_REQ_COD = 50;
     private String[] permissions = {Manifest.permission.RECORD_AUDIO};
     private GraphView graph;
-    private LineGraphSeries series;
+    private LineGraphSeries series, mediumSeries;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -95,7 +95,7 @@ public class MainActivity extends BannerActivity {
     private void initGraph() {
         graph = (GraphView) findViewById(R.id.graph);
         series = new LineGraphSeries();
-        series.setColor(Color.rgb(76, 175, 80));
+        series.setColor(getColor(R.color.colorPrimary));
         graph.addSeries(series);
         Viewport vp = graph.getViewport();
         vp.setXAxisBoundsManual(true);
@@ -105,8 +105,13 @@ public class MainActivity extends BannerActivity {
         glr.setLabelVerticalWidth(72);
         glr.setPadding(24);
         glr.setHorizontalLabelsVisible(false);
+
+        mediumSeries = new LineGraphSeries();
+        mediumSeries.setColor(getColor(R.color.colorBackgroundTransparent));
+        graph.addSeries(mediumSeries);
     }
 
     public GraphView getGraph() {return graph;}
     public LineGraphSeries getSeries() {return series;}
+    public LineGraphSeries getMediumSeries() {return mediumSeries;}
 }

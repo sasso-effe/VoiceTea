@@ -1,9 +1,6 @@
 package com.example.voicetuner;
 
-import com.example.voicetuner.fft.Complex;
-import com.example.voicetuner.fft.FFT;
-import com.example.voicetuner.fft.Frequency;
-
+import org.jtransforms.fft.DoubleFFT_1D;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -11,24 +8,18 @@ public class FFTTest {
     @Test
     public void fft_isCorrect() {
         final int AMPLITUDE, FREQUENCY, SAMPLE_RATE;
-        AMPLITUDE = 10;
+        Global.isSpeechFocusOn = true;
+        AMPLITUDE = 1000000000;
         FREQUENCY = 500;
         SAMPLE_RATE = Global.getSampleRate();
-        Complex[] buff = new Complex[Global.getBufferSize()];
-        for (int i = 0; i<buff.length; i++) {
-            buff[i] = new Complex(AMPLITUDE * Math.sin(2 * Math.PI * FREQUENCY * i / SAMPLE_RATE), 0);
+        double[] buff = new double[Global.getBufferSize() * 2];
+        for (int i = 0; i<buff.length; i += 2) {
+            buff[i] = AMPLITUDE * Math.sin(Math.PI * FREQUENCY * i / SAMPLE_RATE);
+            buff[i+1] = 0;
         }
-        buff = FFT.fft(buff);
+        new DoubleFFT_1D(buff.length/2).complexForward(buff);
         double frequency = Frequency.getFrequency(buff);
         double delta = (double) SAMPLE_RATE / Global.getBufferSize();
         assertEquals(FREQUENCY, frequency, delta);
-
-
-
-
-
-
-
-
     }
 }

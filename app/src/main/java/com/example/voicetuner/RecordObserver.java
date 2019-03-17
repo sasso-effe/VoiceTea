@@ -2,33 +2,35 @@ package com.example.voicetuner;
 
 
 import com.example.voicetuner.activity.MainActivity;
-import com.example.voicetuner.fft.Complex;
-import com.example.voicetuner.fft.FFT;
-import com.example.voicetuner.fft.Frequency;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-import com.jjoe64.graphview.series.Series;
+
+import org.jtransforms.fft.DoubleFFT_1D;
 
 public class RecordObserver implements Observer<RecordListener> {
     private MainActivity myActivity;
     private int x = 0;
     private double lastFrequency = 0;
+    private DoubleFFT_1D dfft;
 
     RecordObserver(MainActivity activity) {
         myActivity = activity;
+        dfft = new DoubleFFT_1D(Global.getBufferSize());
     }
 
     @Override
     public void update(RecordListener ob) {
         short[] buffer = ob.getBuffer();
         double[] window = Global.getWindowFunction();
-        Complex[] compBuffer = new Complex[buffer.length];
+        double[] compBuffer = new double[buffer.length * 2];
 
-        //Apply window function and then convert to Complex with imaginary part = 0;
+        //Apply window function and then add to compBuffer with immaginary part = 0;
         for (int i = 0; i < buffer.length; i++) {
-            compBuffer[i] = new Complex(buffer[i] * window[i], 0);
+            compBuffer[2*i] = buffer[i] * window[i];
+            compBuffer[i+1] = 0;
         }
-        compBuffer = FFT.fft(compBuffer);
+
+        dfft.complexForward(compBuffer);
         double freq = Frequency.getFrequency(compBuffer);
         drawGraph(freq);
     }
@@ -48,6 +50,10 @@ public class RecordObserver implements Observer<RecordListener> {
         if (notShow) {
             series.setColor(myActivity.getColor(R.color.colorPrimary));
         }
+    }
+
+    private void drawMediumGraph(double y) {
+        DataPoint p;
     }
 
 }
