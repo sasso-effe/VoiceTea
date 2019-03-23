@@ -6,4 +6,6 @@
     <color name="colorBackground">#6F6F6F</color>
     <color name="colorBackgroundTransparent">#806F6F6F</color>
     <color name="colorInvisible">#00000000</color>
+    <color name="red">#E53935</color>
+    <color name="splashBackground">#555555</color>
 </resources>

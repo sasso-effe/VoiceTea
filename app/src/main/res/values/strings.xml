@@ -32,4 +32,5 @@
         <item>High (Could have some delay)</item>
     </string-array>
     <string name="donate_1_99">Donate $1.99</string>
+    <string name="application_logo">application logo</string>
 </resources>

@@ -13,7 +13,7 @@ public class RecordListener extends Observable implements View.OnClickListener {
 
     private AudioRecord record;
     /* private int minSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO,
-     *      AudioFormat.ENCODING_PSCM_16BIT);
+     *      AudioFormat.ENCODING_PCM_16BIT);
      * minSize is about 3500, but we need a power of 2 dimension. 4096 is 2^12
      */
     private short[] buffer = new short[Global.getBufferSize()];

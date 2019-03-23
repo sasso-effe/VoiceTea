@@ -20,12 +20,14 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.Viewport;
 import com.jjoe64.graphview.series.LineGraphSeries;
+import com.jjoe64.graphview.series.PointsGraphSeries;
 
 public class MainActivity extends BannerActivity {
     private final int RECORD_AUDIO_REQ_COD = 50;
     private String[] permissions = {Manifest.permission.RECORD_AUDIO};
     private GraphView graph;
-    private LineGraphSeries series, mediumSeries;
+    private LineGraphSeries series;
+    private PointsGraphSeries peakPointsSeries;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -106,12 +108,13 @@ public class MainActivity extends BannerActivity {
         glr.setPadding(24);
         glr.setHorizontalLabelsVisible(false);
 
-        mediumSeries = new LineGraphSeries();
-        mediumSeries.setColor(getColor(R.color.colorBackgroundTransparent));
-        graph.addSeries(mediumSeries);
+        peakPointsSeries = new PointsGraphSeries();
+        peakPointsSeries.setColor(getColor(R.color.red));
+        peakPointsSeries.setSize(10);
+        graph.addSeries(peakPointsSeries);
     }
 
     public GraphView getGraph() {return graph;}
     public LineGraphSeries getSeries() {return series;}
-    public LineGraphSeries getMediumSeries() {return mediumSeries;}
+    public PointsGraphSeries getPeakPointsSeries() {return peakPointsSeries;}
 }
