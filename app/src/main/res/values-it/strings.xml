@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_us_description">VoiceTea è un progetto ideato e realizzato da Truebeans. \nPer l\'implementazione della Trasformata Veloce di Fourier abbiamo preso ispirazione dall\'algoritmo di Robert Sedgewick e Kevin Wayne. \nPer realizzare il grafico sono state usate le librerie di GraphView.</string>
+    <string name="about_us_description">VoiceTea è un progetto ideato e realizzato da Truebeans. \nPer l\'implementazione della Trasformata Veloce di Fourier è stata usata la libreira JTransforms. \nPer realizzare il grafico è stata usata la libreria GraphView.</string>
     <string name="no_profit_project">Il progetto è no-profit. Quando saremo riusciti a coprire i costi di produzione, rimuoveremo gli annunci per tutti gli utenti.</string>
     <string name="contact_us">Contattaci:</string>
     <string name="_0">€0</string>
@@ -22,4 +22,16 @@
         <item>Bassa</item>
         <item>Alta</item>
     </string-array>
+    <string name="application_logo">logo</string>
+    <string name="upgrade_to_premium">Passa a Premium</string>
+    <string name="premium_list">\u2022 Nessun banner pubblicitario \n\u2022 Impostazioni avanzate \n\u2022 Inoltre contribuirai allo sviluppo dell\'app</string>
+    <string name="coffe">+ un caffè per gli sviluppatori</string>
+    <string name="_1_99">1,99€</string>
+    <string name="_2_99">2,99€</string>
+    <string name="title_activity_donate">Passa a Premium</string>
+    <string name="title_activity_open_source">Librerie open source</string>
+    <string name="na_alpha">Non disponibile nella versione alpha</string>
+
+
+
 </resources>
