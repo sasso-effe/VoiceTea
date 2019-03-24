@@ -21,6 +21,7 @@ public class Global {
     public static final int MAX_SPEECH_FREQ = 700;
     public static final int MIN_SPEECH_MAGNITUDE = 80000;
     public static boolean isSpeechFocusOn = true;
+    public static boolean isSignalModeOn = true;
 
 
     public static int getBufferSize() {
