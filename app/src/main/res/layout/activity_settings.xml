@@ -16,7 +16,7 @@
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/premium_price" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_settings"
@@ -48,10 +48,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintBottom_toBottomOf="@+id/premium_price"
         app:layout_constraintEnd_toStartOf="@+id/textView13"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
+        app:layout_constraintStart_toEndOf="@+id/premium_price"
+        app:layout_constraintTop_toTopOf="@+id/premium_price" />
 
     <Spinner
         android:id="@+id/precision_spinner"
@@ -61,11 +61,11 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView15"
         app:layout_constraintEnd_toStartOf="@+id/textView13"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintStart_toEndOf="@+id/premium_price"
         app:layout_constraintTop_toTopOf="@+id/textView15" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/premium_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

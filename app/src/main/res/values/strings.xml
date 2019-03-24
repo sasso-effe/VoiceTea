@@ -33,4 +33,14 @@
     </string-array>
     <string name="donate_1_99">Donate $1.99</string>
     <string name="application_logo">application logo</string>
+    <string name="upgrade_to_premium">Upgrade to Premium</string>
+    <string name="premium_list">\u2022 No ads \n\u2022 Advanced settings \n\u2022 You will also contribute to the development of the app</string>
+    <string name="premium" translatable="false">Premium</string>
+    <string name="coffe">+ a coffee for developers</string>
+    <string name="_1_99">1.99$</string>
+    <string name="_2_99">2.99$</string>
+    <string name="title_activity_donate">Buy Premium</string>
+    <string name="title_activity_open_source">Open source libriaries</string>
+    <string name="na_alpha">Not available in alpha version</string>
+
 </resources>

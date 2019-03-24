@@ -11,4 +11,11 @@
     <item
         android:id="@+id/navigation_settings"
         android:title="@string/settings"/>
+    <item
+        android:id="@+id/navigation_donate"
+        android:icon="@drawable/ic_shop_white_24dp"
+        android:title="@string/title_activity_donate"/>
+    <item
+        android:id="@+id/navigation_open_source_libraries"
+        android:title="@string/title_activity_open_source"/>
 </menu>
