@@ -83,7 +83,7 @@
         android:layout_height="wrap_content"
         android:visibility="visible"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-8343076377545122/6370760981"
+        ads:adUnitId="ca-app-pub-2625081562438340/3481445556"
         ads:layout_constraintTop_toBottomOf="@+id/toolbar_donate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

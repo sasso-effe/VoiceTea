@@ -32,6 +32,8 @@
     <string name="title_activity_open_source">Librerie open source</string>
     <string name="na_alpha">Non disponibile nella versione alpha</string>
     <string name="privacy_policy">Informativa sulla privacy:</string>
+    <string name="signalmode">Segnala le \"salite\":</string>
+    <string name="speechmode">Modalità Speech Focus:</string>
 
 
 

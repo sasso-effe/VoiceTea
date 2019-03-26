@@ -108,6 +108,20 @@
         app:layout_constraintStart_toEndOf="@+id/textView14"
         app:layout_constraintTop_toTopOf="@+id/textView14" />
 
+    <ImageButton
+        android:id="@+id/speechHelpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/ic_help_black_24dp"
+        android:tint="@android:color/darker_gray"
+        android:tooltipText="Increases efficiency for speeches"
+        app:layout_constraintBottom_toBottomOf="@+id/speechSwitch"
+        app:layout_constraintStart_toEndOf="@+id/speechSwitch"
+        app:layout_constraintTop_toTopOf="@+id/speechSwitch"
+        app:srcCompat="@drawable/ic_help_black_24dp"
+        android:contentDescription="@null" />
+
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
@@ -131,6 +145,20 @@
         app:layout_constraintTop_toTopOf="@+id/textView16"
         app:layout_constraintVertical_bias="0.0" />
 
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/ic_help_black_24dp"
+        android:tint="@android:color/darker_gray"
+        android:tooltipText="Warn of spikes and frequency fallouts"
+        app:layout_constraintBottom_toBottomOf="@+id/alertSwitch"
+        app:layout_constraintStart_toEndOf="@+id/alertSwitch"
+        app:layout_constraintTop_toTopOf="@+id/textView16"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_help_black_24dp"
+        android:contentDescription="@null" />
 
 
 </android.support.constraint.ConstraintLayout>

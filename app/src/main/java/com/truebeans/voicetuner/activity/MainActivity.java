@@ -12,14 +12,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.truebeans.voicetuner.R;
-import com.truebeans.voicetuner.RecordListener;
 import com.google.android.gms.ads.AdView;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.Viewport;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.PointsGraphSeries;
+import com.truebeans.voicetuner.R;
+import com.truebeans.voicetuner.RecordListener;
 
 public class MainActivity extends BannerActivity {
     private final int RECORD_AUDIO_REQ_COD = 50;
@@ -58,9 +58,9 @@ public class MainActivity extends BannerActivity {
             case R.id.navigation_settings:
                 startActivity(SettingsActivity.class);
                 break;
-            case R.id.navigation_donate:
+          /*case R.id.navigation_donate:
                 startActivity(PremiumActivity.class);
-                break;
+                break;*/
             case R.id.navigation_open_source_libraries:
                 startActivity(OpenSourceActivity.class);
                 break;

@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
         android:allowBackup="true"
@@ -17,28 +17,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.truebeans.voicetuner.activity.MainActivity" />
-        <activity android:name="com.truebeans.voicetuner.activity.AboutActivity" />
-        <activity android:name="com.truebeans.voicetuner.activity.HelpActivity" />
-        <activity android:name="com.truebeans.voicetuner.activity.SettingsActivity" />
-        <activity android:name="com.truebeans.voicetuner.activity.SplashActivity" android:theme="@style/SplashTheme">
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.AboutActivity" />
+        <activity android:name=".activity.HelpActivity" />
+        <activity android:name=".activity.SettingsActivity" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
+
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name="com.truebeans.voicetuner.activity.PremiumActivity" />
-        <activity android:name="com.truebeans.voicetuner.activity.OpenSourceActivity" />
-
-        <!-- AdMob implementation -->
+        <activity android:name=".activity.PremiumActivity" />
+        <activity android:name=".activity.OpenSourceActivity" /> <!-- AdMob implementation -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8343076377545122~2378764836" />
-
-
-
+            android:value="ca-app-pub-2625081562438340~9260030622" />
     </application>
-
 
 </manifest>

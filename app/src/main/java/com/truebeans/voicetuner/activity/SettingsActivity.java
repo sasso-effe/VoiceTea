@@ -5,7 +5,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 
@@ -47,12 +46,13 @@ public class SettingsActivity extends SideActivity {
 
         Switch speechModeSwitch = findViewById(R.id.speechSwitch);
         speechModeSwitch.setChecked(Global.isSpeechFocusOn);
-        speechModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Global.isSpeechFocusOn = !Global.isSpeechFocusOn;
-            }
-        });
+        speechModeSwitch.setOnCheckedChangeListener(
+                (buttonView, isChecked) -> Global.isSpeechFocusOn = !Global.isSpeechFocusOn);
+
+        Switch signalModeSwitch = findViewById(R.id.alertSwitch);
+        signalModeSwitch.setChecked(Global.isSignalModeOn);
+        speechModeSwitch.setOnCheckedChangeListener(
+                ((buttonView, isChecked) -> Global.isSignalModeOn = !Global.isSignalModeOn));
     }
 
     private Spinner setSpinner(int spinnerId, int arrayId) {

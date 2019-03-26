@@ -103,6 +103,8 @@
         See the License for the specific language governing permissions and
         limitations under the License.
      </string>
+    <string name="signalmode">Peaks Alert:</string>
+    <string name="speechmode">Speech Focus:</string>
 
 
 </resources>
